@@ -37,4 +37,8 @@ target 'bare_food_management' do
       # :ccache_enabled => true
     )
   end
+
+  #Me Added:
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
 end
