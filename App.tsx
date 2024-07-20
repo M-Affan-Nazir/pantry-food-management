@@ -21,7 +21,7 @@ function MyStack(){
 export default function App() {
   return(
     <NavigationContainer>
-      <StatusBar backgroundColor="lightgreen" barStyle="light-content" />
+      <StatusBar backgroundColor="blue" barStyle="light-content" />
       <MyStack />
     </NavigationContainer>
   )  
