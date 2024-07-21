@@ -119,13 +119,13 @@ export default function AddManually(x : NavigationContainerProp) {
       }}
     >
       <View style={{flexDirection: "row", justifyContent:"space-between"}} >
-        <View>
+        <View style={{flexDirection:"row"}} >
         <Text style={{ color: 'black', fontSize: 17}}>
           {item.name.toLocaleUpperCase()}
         </Text>
-        <Text style={{fontWeight:"bold", fontSize:14, marginLeft:5, marginTop:1, color:"grey"}}>x{item.quantity}</Text>
+        <Text style={{fontWeight:"bold", fontSize:14, marginLeft:15, marginTop:1, color:"grey"}}>x{item.quantity}</Text>
         </View>
-        <TouchableOpacity style={{marginRight:15, backgroundColor:"red", paddingVertical:7, paddingHorizontal:5, justifyContent:"center", alignItems:"center"}} onPress={()=>removeFromCart(item.name)}>
+        <TouchableOpacity style={{marginRight:15, backgroundColor:"red", paddingVertical:7, paddingHorizontal:5, justifyContent:"center", alignItems:"center", borderRadius:5}} onPress={()=>removeFromCart(item.name)}>
           <Text style={{color:"white"}}>Remove</Text>
         </TouchableOpacity>
       </View>
