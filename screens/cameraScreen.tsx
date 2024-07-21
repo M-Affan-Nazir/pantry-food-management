@@ -26,7 +26,7 @@ export default function CameraScreen(x : NavigationContainerProp) {
 
     const [permission, setPermission] = useState<CameraPermissionStatus | null>(null)
     const [uri, setUri] = useState("")
-    const [text, setText] = useState("")
+    const [textX, setText] = useState<string[]>()
     const cameraRef = useRef<Camera>(null);
     
     const device = useCameraDevice('back')
@@ -48,8 +48,8 @@ export default function CameraScreen(x : NavigationContainerProp) {
         }
         try{
           const result = await TextRecognition.recognize("file:///"+uri);
-          setText(result.text)
-          console.log("Recognized text:", text);
+          setText(result.text.split("\n"))
+          console.log("Recognized text:", textX);
         }
         catch(error){
           console.error('Error Recognizing picture:', error);
