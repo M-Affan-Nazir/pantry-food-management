@@ -225,7 +225,7 @@ export default function AddManually(x : NavigationContainerProp) {
             data={result}
             renderItem={renderResult}
             keyExtractor={(item) => item.name}
-            showsHorizontalScrollIndicator={false}
+            showsHorizontalScrollIndicator={true}
           />
           </View>
         </View>
