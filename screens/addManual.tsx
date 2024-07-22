@@ -4,6 +4,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Entypo from 'react-native-vector-icons/Entypo';
+import { getDBConnection, addItem, createTable } from '../functions/storage';
 
 const w = Dimensions.get('window').width;
 const h = Dimensions.get('window').height;
@@ -54,10 +55,11 @@ type resultRenderItem={
   name:string,
   expiry:number,
   factor:string,
-  quantity : number
+  quantity : number,
+  price : number
 }
 
-export default function AddManually(x : NavigationContainerProp) {
+export default async function  AddManually(x : NavigationContainerProp) {
 
   const [text, setText] = useState("")
   const [result, setResult] = useState<resultItem[]>()
@@ -67,6 +69,9 @@ export default function AddManually(x : NavigationContainerProp) {
   const [quantity, setQuantity] = useState(1)
   const [cartDetailModal, setCartDetailModal] = useState(false)
 
+  const db = await getDBConnection()
+  await createTable(db)
+  
   function checkDB(query=""){
     Keyboard.dismiss()
     setResult([])
@@ -81,8 +86,9 @@ export default function AddManually(x : NavigationContainerProp) {
   }
 
 
-  function addToDataBase(){
-    console.warn("Adding To DataBase")
+  async function addToDataBase(){
+    await addItem(db, cart)
+    addCart([])
   }
 
   function  renderResult({ item }: { item: resultItem }){
@@ -173,7 +179,7 @@ export default function AddManually(x : NavigationContainerProp) {
         setQuantity(1)
       }
       else{
-        addCart(prev => [...(prev), {...interModal, quantity:quantity}])
+        addCart(prev => [...(prev), {...interModal, quantity:quantity, price:0}])
         setAddModalVis(false)
         setQuantity(1)
       }

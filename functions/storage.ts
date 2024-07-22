@@ -41,6 +41,7 @@ export const getItems = async(db : SQLiteDatabase) => {
         for (let i = 0; i<result[0].rows.length; i++){
             listItems.push(result[0].rows.item(i))
         }
+        console.warn("Items Retrieved")
         return listItems
     }
     catch(e){
@@ -70,4 +71,5 @@ export const addItem =  async (db : SQLiteDatabase, itmx : itemTypeIn[]) => {
 export const deleteItem = async (db: SQLiteDatabase, itemID : number ) => {
     const query = `DELETE from ${tableName} WHERE id = ?`
     await db.executeSql(query, [itemID])
+    console.warn("Items Deleted")
 }
