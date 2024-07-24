@@ -2,21 +2,26 @@ import { StyleSheet, Text, View, TouchableOpacity, Dimensions } from 'react-nati
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { PieChart } from 'react-native-chart-kit';
+import React from 'react';
 
+type CustomProp = {
+  utilized: number,
+  wasted: number
+}
 
-export default function Stat() {
+const Stat: React.FC<CustomProp> = ({ utilized, wasted }) => {
   const w = Dimensions.get('window').width;
   const h = Dimensions.get('window').height;
 
   const data = [
     {
       name: 'Total Money Spent',
-      amount: 440, 
+      amount: utilized, 
       color: 'lightgreen',
     },
     {
       name: 'Total Money Wasted',
-      amount: 60,
+      amount: wasted+0.01,
       color: 'red',
     },
   ];
@@ -26,14 +31,14 @@ export default function Stat() {
         <View style={{height:25, width:20, backgroundColor:"lightgreen", position:"absolute", marginTop:13, borderTopRightRadius:15, borderBottomRightRadius:15, justifyContent:"center",alignItems:"center"}}>
           <FontAwesome name="dollar" size={13} style={{marginTop:1}} color="black" />
         </View>
-        <Text style={{position:"absolute", color:"black", marginTop:16.5, fontSize:13, marginLeft: 25, fontWeight:"500"}}>Finance Statistics:</Text>
+        <Text style={{position:"absolute", color:"black", marginTop:16.5, fontSize:13, marginLeft: 25, fontWeight:"500"}}>Consumption Summary:</Text>
         <View style={{flexDirection:"row", marginTop: 11}} >  
           <View style={{justifyContent:"center", alignItems:"center"}}>
-            <Text style={{fontSize:27,  color:"black", fontWeight:"500"}} >$500</Text>
+            <Text style={{fontSize:27,  color:"black", fontWeight:"500"}} >{utilized}</Text>
             <Text style={{fontSize:11.7,  color:"black"}}>Utilized</Text>
           </View>
           <View style={{marginHorizontal:25, justifyContent:"center", alignItems:"center"}}>
-            <Text style={{fontSize:27, fontWeight:"500",  color:"black", }} >$60</Text>
+            <Text style={{fontSize:27, fontWeight:"500",  color:"black", }}>{wasted}</Text>
             <Text style={{fontSize:11.7,  color:"black", }}>Wasted</Text>
           </View>
           <PieChart
@@ -51,7 +56,7 @@ export default function Stat() {
               backgroundColor="transparent"
               paddingLeft="15"
               absolute
-              style={{flex:1, paddingLeft:9}}
+              style={{flex:1, paddingLeft:45}}
             />
             <View style={{marginLeft:75, marginTop:10}}>
               <View style={{flexDirection:"row"}}>
@@ -74,3 +79,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff'
   },
 });
+
+
+export default Stat;

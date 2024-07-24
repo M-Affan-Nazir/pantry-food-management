@@ -193,7 +193,8 @@ export default function Home(x : NavigationContainerProp) {
         <Text style={{position:"absolute",  color:"black",  marginTop:16.5, fontSize:13, marginLeft: 19, fontWeight:"500"}}> Expired: </Text>
         <ExpiredCapsulation />
       </View>
-      <Stat />
+      <Stat utilized={items.length} wasted={expired.length} />
+    
       <Modal visible={modalOptionVisible} animationType="none" onRequestClose={toggleOptionModal} transparent={true} >
         <View style={{flex:1, justifyContent:"flex-end", backgroundColor:'rgba(206, 222, 210, 0.7)'}}>
           <TouchableHighlight style={{backgroundColor:"#fafafa", height:70, borderTopLeftRadius:20, borderTopRightRadius:20, flexDirection:"row"}} onPress={()=>{x.navigation.navigate("Camera"), setModalOptionVisible(false) }} >  
