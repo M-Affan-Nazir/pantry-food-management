@@ -5,7 +5,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Entypo from 'react-native-vector-icons/Entypo';
 import { getDBConnection, addItem, createTable } from '../functions/storage';
-
+import { SQLiteDatabase } from 'react-native-sqlite-storage';
 const w = Dimensions.get('window').width;
 const h = Dimensions.get('window').height;
 
@@ -59,7 +59,7 @@ type resultRenderItem={
   price : number
 }
 
-export default async function  AddManually(x : NavigationContainerProp) {
+export default function  AddManually(x : NavigationContainerProp) {
 
   const [text, setText] = useState("")
   const [result, setResult] = useState<resultItem[]>()
@@ -68,9 +68,17 @@ export default async function  AddManually(x : NavigationContainerProp) {
   const [cart, addCart] = useState<resultRenderItem[]>([])
   const [quantity, setQuantity] = useState(1)
   const [cartDetailModal, setCartDetailModal] = useState(false)
+  const [db, setDb] = useState<SQLiteDatabase | null>(null)
 
-  const db = await getDBConnection()
-  await createTable(db)
+  
+  useEffect(()=>{
+    async function loadDb(){
+      const dataBase = await getDBConnection()
+      await createTable(dataBase)
+      setDb(dataBase)
+    }
+    loadDb();
+  },[])
   
   function checkDB(query=""){
     Keyboard.dismiss()
@@ -87,8 +95,11 @@ export default async function  AddManually(x : NavigationContainerProp) {
 
 
   async function addToDataBase(){
-    await addItem(db, cart)
-    addCart([])
+    if(db !== null){
+      await addItem(db, cart)
+      addCart([])
+    }
+    
   }
 
   function  renderResult({ item }: { item: resultItem }){

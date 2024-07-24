@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, TouchableHighlight, TouchableOpacity, Dimensions, Modal, FlatList } from 'react-native';
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -7,6 +7,9 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Stat from '../components/statistics';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { SQLiteDatabase } from 'react-native-sqlite-storage';
+import { createTable, getDBConnection, getItems } from '../functions/storage';
+import { useFocusEffect } from '@react-navigation/native';
 
 const w = Dimensions.get('window').width;
 const h = Dimensions.get('window').height;
@@ -23,9 +26,48 @@ interface NavigationContainerProp {
   navigation: HomeNavigationProp;
 }
 
+type itemTypeOut = {
+  id : number,
+  name : string,
+  expiry : number,
+  factor: string,
+  quantity : number,
+  price : number,
+  createdAt : number
+}
+
 export default function Home(x : NavigationContainerProp) {
 
   const [modalOptionVisible, setModalOptionVisible] = useState(false);
+  const [db, setDb] = useState<SQLiteDatabase|null>(null)
+  const [items, setItems] = useState<itemTypeOut[]>([])
+
+  useEffect(()=>{
+    async function loadDb(){
+      const dataBase = await getDBConnection()
+      await createTable(dataBase)
+      setDb(dataBase)
+    }
+    loadDb();
+    getItemsFromDB()
+  },[])
+
+  useFocusEffect(
+    React.useCallback(() => {
+      getItemsFromDB()
+      return () => {
+        console.log("Screen focus Complete");
+      };
+    }, [])
+  );
+
+  async function getItemsFromDB(){
+    if(db !== null){
+      const items = await getItems(db)
+      setItems(items)
+      console.warn(items)
+    }
+  }
   
   interface Item {
     key: string;

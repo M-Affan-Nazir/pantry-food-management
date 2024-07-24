@@ -1,7 +1,5 @@
 import { openDatabase, SQLiteDatabase, enablePromise } from "react-native-sqlite-storage"
 
-
-
 enablePromise(true)
 
 let tableName = "itemTable"
@@ -24,7 +22,14 @@ type itemTypeOut = {
 }
 
 export const getDBConnection = async () => {
-    return openDatabase({name: 'items', location: 'default'});
+    try {
+        const db = await openDatabase({ name: 'items', location: 'default' });
+        console.log("Database connection established.");
+        return db;
+    } catch (error) {
+        console.error("Failed to connect to database:", error);
+        throw error;  // Ensure the error is not silently ignored
+    }
 };
 
 export const createTable = async (db : SQLiteDatabase) => {
@@ -56,11 +61,11 @@ export const addItem =  async (db : SQLiteDatabase, itmx : itemTypeIn[]) => {
     const query = `INSERT INTO ${tableName} (name, expiry, factor, quantity, price) VALUES (?,?,?,?,?) `
     for(let i = 0; i<itmx.length; i++){
         try{
-            const result = await db.executeSql(query, [itmx[i].name, itmx[i].expiry, , itmx[i].factor, itmx[i].quantity, itmx[i].price]) 
+            const result = await db.executeSql(query, [itmx[i].name, itmx[i].expiry, itmx[i].factor, itmx[i].quantity, itmx[i].price]) 
             console.warn("Successfull Added Products")
         }
         catch(e){
-            console.log(e)
+            console.warn(e)
         }
              
     }
