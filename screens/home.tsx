@@ -85,7 +85,7 @@ export default function Home(x : NavigationContainerProp) {
   ];
 
   let renderItem = ({ item }: { item: itemTypeOut }) => (
-    <View
+    <TouchableOpacity
       style={{
         backgroundColor: 'white',
         height: 95,
@@ -103,7 +103,7 @@ export default function Home(x : NavigationContainerProp) {
         {item.name}
       </Text>
       <Text style={{ fontSize: 11,  color:"black",  }}>{item.expiry} {item.factor}</Text>
-    </View>
+    </TouchableOpacity>
   );
 
   let renderExpired = ({ item }: { item: Item }) => (
