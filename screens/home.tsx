@@ -10,21 +10,18 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { SQLiteDatabase } from 'react-native-sqlite-storage';
 import { createTable, getDBConnection, getItems } from '../functions/storage';
 import { useFocusEffect } from '@react-navigation/native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 const w = Dimensions.get('window').width;
 const h = Dimensions.get('window').height;
 
 type HomeStackParamList = {
-  Home: undefined; 
+  Home: {db : SQLiteDatabase}; 
   AddManually: undefined;
   Camera: undefined
 };
+type Props = NativeStackScreenProps<HomeStackParamList, 'Home'>;
 
-type HomeNavigationProp = StackNavigationProp<HomeStackParamList, 'Home'>;
-
-interface NavigationContainerProp {
-  navigation: HomeNavigationProp;
-}
 
 type itemTypeOut = {
   id : number,
@@ -36,20 +33,13 @@ type itemTypeOut = {
   createdAt : number
 }
 
-export default function Home(x : NavigationContainerProp) {
+export default function Home(x : Props) {
 
   const [modalOptionVisible, setModalOptionVisible] = useState(false);
-  const [db, setDb] = useState<SQLiteDatabase|null>(null)
   const [items, setItems] = useState<itemTypeOut[]>([])
   const [expired, setExpired] = useState<itemTypeOut[]>([])
 
   useEffect(()=>{
-    async function loadDb(){
-      const dataBase = await getDBConnection()
-      await createTable(dataBase)
-      setDb(dataBase)
-    }
-    loadDb();
     getItemsFromDB()
   },[])
 
@@ -63,11 +53,9 @@ export default function Home(x : NavigationContainerProp) {
   );
 
   async function getItemsFromDB(){
-    if(db !== null){
-      const items = await getItems(db)
+      const items = await getItems(x.route.params.db)
       setItems(items)
       console.warn(items)
-    }
   }
   
   interface Item {
@@ -76,13 +64,7 @@ export default function Home(x : NavigationContainerProp) {
     days: string;
   }
 
-  const data: Item[] = [
-    { key: '1', name: 'Chicken', days: '3 days' },
-    { key: '2', name: 'Beef', days: '5 days' },
-    { key: '3', name: 'Pork', days: '2 days' },
-    { key: '4', name: 'Fish', days: '1 day' },
-    { key: '5', name: 'Turkey', days: '4 days' },
-  ];
+  const data : Item[] = []
 
   let renderItem = ({ item }: { item: itemTypeOut }) => (
     <TouchableOpacity

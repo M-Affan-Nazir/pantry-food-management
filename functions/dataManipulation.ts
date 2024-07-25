@@ -9,8 +9,8 @@ type itemTypeOut = {
     createdAt : number
 }
 
-const toExpire : itemTypeOut[] = []
-const expired : itemTypeOut[] = []
+let toExpire : itemTypeOut[] = []
+let expired : itemTypeOut[] = []
 
   
 function getAdditionTime(expiry : number, factor: string){
@@ -44,7 +44,11 @@ export function seperateItems( arr : itemTypeOut[]){
         }
     }
     bubbleSort()
-    return {toExpire, expired}
+    let te = [...toExpire]
+    let e = [...expired]
+    toExpire = []
+    expired = []
+    return {te, e}
 }
 
 function bubbleSort(){
