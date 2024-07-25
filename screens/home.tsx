@@ -11,6 +11,7 @@ import { SQLiteDatabase } from 'react-native-sqlite-storage';
 import { createTable, getDBConnection, getItems } from '../functions/storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { seperateItems } from '../functions/dataManipulation';
 
 const w = Dimensions.get('window').width;
 const h = Dimensions.get('window').height;
@@ -53,9 +54,10 @@ export default function Home(x : Props) {
   );
 
   async function getItemsFromDB(){
-      const items = await getItems(x.route.params.db)
-      setItems(items)
-      console.warn(items)
+      const gotten = await getItems(x.route.params.db)
+      const {te, e} = seperateItems(gotten)
+      setItems(te)
+      setExpired(e)
   }
   
   interface Item {
