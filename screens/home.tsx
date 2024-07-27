@@ -82,7 +82,6 @@ export default function Home(x : Props) {
 
       <AboutToExpireList items={items} />
       <Expired items={expired} />
-
       <Stat utilized={items.length} wasted={expired.length} />
     
       <Modal visible={modalOptionVisible} animationType="none" onRequestClose={toggleOptionModal} transparent={true} >
