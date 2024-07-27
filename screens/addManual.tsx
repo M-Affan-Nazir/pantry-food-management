@@ -42,6 +42,11 @@ const data = [
     expiry:1,
     factor:"year"
   },
+  {
+    name:"milk",
+    expiry:0.0001,
+    factor:"days"
+  },
 
 ]
 
@@ -98,6 +103,9 @@ export default function  AddManually(x : NavigationContainerProp) {
     if(db !== null){
       await addItem(db, cart)
       addCart([])
+      setCartDetailModal(false)
+      setText("")
+      x.navigation.pop()
     }
     
   }

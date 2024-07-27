@@ -31,7 +31,7 @@ type itemTypeOut = {
   factor: string,
   quantity : number,
   price : number,
-  createdAt : number
+  created_at : number
 }
 
 export default function Home(x : Props) {
@@ -90,7 +90,7 @@ export default function Home(x : Props) {
     </TouchableOpacity>
   );
 
-  let renderExpired = ({ item }: { item: Item }) => (
+  let renderExpired = ({ item }: { item: itemTypeOut }) => (
     <View
       style={{
         backgroundColor: 'white',
@@ -140,9 +140,9 @@ export default function Home(x : Props) {
       return (
       <FlatList
         horizontal
-        data={data}
+        data={expired}
         renderItem={renderExpired}
-        keyExtractor={(item) => item.key}
+        keyExtractor={(item) => String(item.id)}
         showsHorizontalScrollIndicator={false}
       />)
     }

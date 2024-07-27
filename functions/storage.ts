@@ -18,7 +18,7 @@ type itemTypeOut = {
     factor: string,
     quantity : number,
     price : number,
-    createdAt : number
+    created_at : number
 }
 
 export const getDBConnection = async () => {
