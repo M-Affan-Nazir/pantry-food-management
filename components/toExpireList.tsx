@@ -36,7 +36,6 @@ export default function AboutToExpireList(x:prop){
               horizontal
               data={items}
               renderItem={renderItem}
-            
               keyExtractor={(item) => String(item.id)}
               showsHorizontalScrollIndicator={false}
             />)
