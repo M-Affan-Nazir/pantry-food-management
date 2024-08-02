@@ -101,7 +101,8 @@ export default function Expired(x : prop){
               <Text style={{marginTop:0, marginLeft:15, fontSize:23, color:"black", fontWeight:"bold", marginBottom:8, textDecorationLine:"underline"}}>Expired Items:</Text>
               
               {
-                expired.length < 1 ? 
+                expired.length < 1 
+                ? 
                 <Text style={{marginHorizontal:15, marginVertical:9, color:"grey", fontSize:21,}}>Good job!{"\n"}You let no items expire this month.</Text> 
                 : 
                 <FlatList
