@@ -2,6 +2,8 @@ import { StyleSheet, Text, View, TouchableHighlight, TouchableOpacity, Dimension
 import React, { useState, useEffect } from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
+import { SQLiteDatabase } from 'react-native-sqlite-storage';
+import { updateItem } from '../functions/storage';
 
 type itemTypeOut = {
     id : number,
@@ -13,7 +15,9 @@ type itemTypeOut = {
     created_at : number
 }
 type prop = {
-    items : itemTypeOut[]
+    items : itemTypeOut[],
+    db : SQLiteDatabase,
+    updateList: (id:number, quantity:number) => void
 }
 
 export default function AboutToExpireList(x:prop){
@@ -82,6 +86,15 @@ export default function AboutToExpireList(x:prop){
             setUpdate(x => x-1)
         }
       }
+
+      async function updateDB(){
+        if(chosenItem){
+            await updateItem(x.db, chosenItem?.id, update)
+            x.updateList(chosenItem?.id, update)
+            setModal(false)
+            setUpdate(1)
+        }
+      }
     
     
 
@@ -119,15 +132,16 @@ export default function AboutToExpireList(x:prop){
                             <Entypo name="plus" size={24} color="black" />
                         </TouchableOpacity>
                     </View>
-                    <View style={{justifyContent:"center", alignItems:"center", marginTop:15}} >
-                        <TouchableOpacity style={{height:h/15, width:w/3, backgroundColor:"yellow", borderRadius:15, justifyContent:"center", alignItems:"center"}} >
-                            <Text style={{color:"black", fontSize:17}} >Update</Text>
-                        </TouchableOpacity>
-                    </View>
+                      <View style={{justifyContent:"center", alignItems:"center", marginTop:15}} >
+                          <TouchableOpacity style={{height:h/15, width:w/3, backgroundColor:"yellow", borderRadius:15, justifyContent:"center", alignItems:"center"}} onPress={updateDB}>
+                              <Text style={{color:"black", fontSize:17}}>Update</Text>
+                          </TouchableOpacity>
+                      </View>
                     </View>
                     </View>
                 </View>
             </Modal>
+            
         </View>
     )
 

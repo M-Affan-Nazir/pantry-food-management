@@ -41,6 +41,7 @@ export default function Home(x : Props) {
   const [modalOptionVisible, setModalOptionVisible] = useState(false);
   const [items, setItems] = useState<itemTypeOut[]>([])
   const [expired, setExpired] = useState<itemTypeOut[]>([])
+  const [forceUpdate, setForceUpdate] = useState(false)
 
   useEffect(()=>{
     getItemsFromDB()
@@ -69,8 +70,26 @@ export default function Home(x : Props) {
   }
 
   const data : Item[] = []
-
-
+  
+  
+  async function updateList(id:number, quantity:number){
+    let newList:itemTypeOut[] = []
+    for(let i = 0; i<items.length; i++){
+      if(items[i].id !== id){
+        newList.push(items[i])
+      }
+      else{
+        let q = items[i].quantity
+        console.warn(quantity)
+        if(q-quantity > 0){
+          let newItem:itemTypeOut = items[i]
+          newItem.quantity = q - quantity
+          newList.push(newItem)
+        }
+      }
+    }
+    setItems(newList)
+  }
 
 
   return (
@@ -80,7 +99,7 @@ export default function Home(x : Props) {
         <Text style={{fontSize:11,  color:"black", }}>Add</Text>
       </TouchableOpacity>
 
-      <AboutToExpireList items={items} />
+      <AboutToExpireList items={items} db={x.route.params.db} updateList={updateList} />
       <Expired items={expired} />
       <Stat utilized={items.length} wasted={expired.length} />
     

@@ -73,8 +73,28 @@ export const addItem =  async (db : SQLiteDatabase, itmx : itemTypeIn[]) => {
 }
 
 
-export const deleteItem = async (db: SQLiteDatabase, itemID : number ) => {
-    const query = `DELETE from ${tableName} WHERE id = ?`
-    await db.executeSql(query, [itemID])
-    console.warn("Items Deleted")
+export const updateItem = async (db: SQLiteDatabase, itemID : number, quantity:number ) => {
+
+    console.warn("Updating...")
+    const query2 = `SELECT quantity FROM ${tableName} WHERE id = ?`
+    let [results]  = await db.executeSql(query2, [itemID])
+    let q = results.rows.item(0).quantity;
+    console.warn(q)
+    try{
+        if(q <= 1){
+            const query = `DELETE from ${tableName} WHERE id = ?`
+            await db.executeSql(query, [itemID])
+            console.warn("Items Deleted")
+        }
+        else{
+            const query = `UPDATE ${tableName} SET quantity = ? WHERE id = ?`;
+            await db.executeSql(query, [q-quantity, itemID]);
+            console.warn("Item Updated")
+        }  
+    }
+    catch(e){
+        console.warn("Error Updating: " + e)
+    }
+     
+    
 }
