@@ -16,7 +16,7 @@ const Stat: React.FC<CustomProp> = ({ utilized, wasted }) => {
   const data = [
     {
       name: 'Total Money Spent',
-      amount: utilized, 
+      amount: utilized+0.0001, 
       color: 'lightgreen',
     },
     {

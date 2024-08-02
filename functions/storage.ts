@@ -85,7 +85,7 @@ export const updateItem = async (db: SQLiteDatabase, itemID : number, quantity:n
     let q = results.rows.item(0).quantity;
     console.warn(q)
     try{
-        if(q <= 1){
+        if(q-quantity <= 1){
             const query = `DELETE from ${tableName} WHERE id = ?`
             await db.executeSql(query, [itemID])
             console.warn("Items Deleted")
@@ -99,7 +99,7 @@ export const updateItem = async (db: SQLiteDatabase, itemID : number, quantity:n
     catch(e){
         console.warn("Error Updating: " + e)
     }
-     
+   
     
 }
 
