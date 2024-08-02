@@ -127,7 +127,7 @@ export const updateUtilized = async (db: SQLiteDatabase, quantity:number) => {
     }
 }
 
-const addInitial = async (db: SQLiteDatabase) => {
+export const addInitial = async (db: SQLiteDatabase) => {
     try{
         const query = `INSERT INTO utilizedTable (id, utilized) VALUES (786, 0)`
         await db.executeSql(query)
@@ -135,4 +135,16 @@ const addInitial = async (db: SQLiteDatabase) => {
     catch(e){
         return
     }
+}
+
+export const reset = async (db: SQLiteDatabase, expiredArray : itemTypeOut[]) => {
+    const query = `UPDATE utilizedTable SET utilized = ? WHERE id = 786`;
+    await db.executeSql(query, [0]);
+    
+    console.warn("resetting...")
+    const ids = expiredArray.map(item => item.id);
+   for(let i = 0; i<ids.length; i++){
+        const query2 = `DELETE from ${tableName} WHERE id = ?`
+        await db.executeSql(query2, [ids[i]])
+   }
 }

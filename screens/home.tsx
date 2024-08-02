@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableHighlight, TouchableOpacity, Dimensions, Modal, FlatList } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight, TouchableOpacity, Dimensions, Modal } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -8,12 +8,13 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Stat from '../components/statistics';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { SQLiteDatabase } from 'react-native-sqlite-storage';
-import { getItems, getUtilized } from '../functions/storage';
+import { getItems, getUtilized, reset } from '../functions/storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { seperateItems } from '../functions/dataManipulation';
 import AboutToExpireList from '../components/toExpireList';
 import Expired from '../components/Expired';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const w = Dimensions.get('window').width;
 const h = Dimensions.get('window').height;
@@ -41,13 +42,40 @@ export default function Home(x : Props) {
   const [modalOptionVisible, setModalOptionVisible] = useState(false);
   const [items, setItems] = useState<itemTypeOut[]>([])
   const [expired, setExpired] = useState<itemTypeOut[]>([])
-  const [forceUpdate, setForceUpdate] = useState(false)
   const [utilized, setUtilized] = useState<number>(0)
+
+  function getUTCFirstDayOfCurrentMonth(): number {
+    const now = new Date(); 
+    const year = now.getUTCFullYear();
+    const month = now.getUTCMonth();
+    const firstDayOfMonth = new Date(Date.UTC(year, month, 1, 0, 0, 0, 0));
+    return Math.floor(firstDayOfMonth.getTime() / 1000);
+  }
 
     useEffect(()=>{
       const get = async () => {
         const ut = await getUtilized(x.route.params.db)
         setUtilized(ut)
+        
+        const lastUTCreset = await AsyncStorage.getItem('resetDone');
+        if(lastUTCreset == null){
+          const utcThis1st = String(getUTCFirstDayOfCurrentMonth())
+          await AsyncStorage.setItem('resetDone', utcThis1st);
+        }
+        else{
+          const t = Math.floor(Date.now() / 1000);
+          if(t - parseInt(lastUTCreset, 10) >= 2592000){
+              await reset(x.route.params.db, expired)
+              setExpired([])
+              const utcThis1st = String(getUTCFirstDayOfCurrentMonth())
+              await AsyncStorage.setItem('resetDone', utcThis1st);
+          }
+          if(t < parseInt(lastUTCreset, 10)){
+            const utcThis1st = String(getUTCFirstDayOfCurrentMonth())
+            await AsyncStorage.setItem('resetDone', utcThis1st);
+          }
+        }
+        
       }
       get()
     })

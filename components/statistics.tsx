@@ -31,7 +31,7 @@ const Stat: React.FC<CustomProp> = ({ utilized, wasted }) => {
         <View style={{height:25, width:20, backgroundColor:"lightgreen", position:"absolute", marginTop:13, borderTopRightRadius:15, borderBottomRightRadius:15, justifyContent:"center",alignItems:"center"}}>
           <FontAwesome name="dollar" size={13} style={{marginTop:1}} color="black" />
         </View>
-        <Text style={{position:"absolute", color:"black", marginTop:16.5, fontSize:13, marginLeft: 25, fontWeight:"500"}}>Consumption Summary:</Text>
+        <Text style={{position:"absolute", color:"black", marginTop:16.5, fontSize:13, marginLeft: 25, fontWeight:"500"}}>This Month's Summary:</Text>
         <View style={{flexDirection:"row", marginTop: 11}} >  
           <View style={{justifyContent:"center", alignItems:"center"}}>
             <Text style={{fontSize:27,  color:"black", fontWeight:"500"}} >{utilized}</Text>
