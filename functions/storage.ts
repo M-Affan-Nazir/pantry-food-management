@@ -109,7 +109,7 @@ export const getUtilized = async (db : SQLiteDatabase) => {
         const result = await db.executeSql(query)
         const firstRow = result[0].rows.item(0)
         // const util = firstRow.utilized
-        console.warn(result)
+        // console.warn(result)
         // return util
     }
     catch(e){
