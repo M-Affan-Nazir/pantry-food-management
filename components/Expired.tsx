@@ -2,7 +2,6 @@ import { StyleSheet, Text, View, TouchableHighlight, TouchableOpacity, Dimension
 import React, { useState, useEffect } from 'react';
 import Entypo from 'react-native-vector-icons/Entypo';
 
-
 const w = Dimensions.get('window').width;
 const h = Dimensions.get('window').height;
 
@@ -109,7 +108,6 @@ export default function Expired(x : prop){
             </View>
           </View>
         </Modal>
-
       </View>
 
 

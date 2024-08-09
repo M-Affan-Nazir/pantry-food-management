@@ -1,3 +1,4 @@
+import { SwipeDirectionTypes } from "react-native-screens"
 import { openDatabase, SQLiteDatabase, enablePromise } from "react-native-sqlite-storage"
 
 enablePromise(true)
@@ -34,7 +35,10 @@ export const getDBConnection = async () => {
 
 export const createTable = async (db : SQLiteDatabase) => {
     const query = `CREATE TABLE IF NOT EXISTS ${tableName}(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, expiry INTEGER NOT NULL, factor TEXT NOT NULL, quantity INTEGER NOT NULL, price INTEGER, created_at INTEGER DEFAULT (strftime('%s', 'now')));`
+    const query2 = `CREATE TABLE IF NOT EXISTS utilizedTable(id INTEGER, utilized INTEGER)`
     await db.executeSql(query)
+    await db.executeSql(query2)
+    await addInitial(db)
 }
 
 export const getItems = async(db : SQLiteDatabase) => {
@@ -58,7 +62,7 @@ export const getItems = async(db : SQLiteDatabase) => {
 
 export const addItem =  async (db : SQLiteDatabase, itmx : itemTypeIn[]) => {
     
-    const query = `INSERT INTO ${tableName} (name, expiry, factor, quantity, price) VALUES (?,?,?,?,?) `
+    const query = `INSERT INTO ${tableName} (name, expiry, factor, quantity, price) VALUES (?,?,?,?,?)`
     for(let i = 0; i<itmx.length; i++){
         try{
             const result = await db.executeSql(query, [itmx[i].name, itmx[i].expiry, itmx[i].factor, itmx[i].quantity, itmx[i].price]) 
@@ -97,4 +101,39 @@ export const updateItem = async (db: SQLiteDatabase, itemID : number, quantity:n
     }
      
     
+}
+
+export const getUtilized = async (db : SQLiteDatabase) => {
+    try{
+        const query =  `SELECT * FROM utilizedTable`
+        const result = await db.executeSql(query)
+        const firstRow = result[0].rows.item(0)
+        // const util = firstRow.utilized
+        console.warn(result)
+        // return util
+    }
+    catch(e){
+        console.warn("Error getting Utilized Item: " + e)
+    }
+}
+
+export const updateUtilized = async (db: SQLiteDatabase, quantity:number) => {
+    try{
+        const already = await getUtilized(db)
+        const query = `UPDATE utilizedTable SET utilized = ? WHERE id = 786`;
+        await db.executeSql(query, [quantity+already]);
+    }
+    catch(e){
+        console.warn(e)
+    }
+}
+
+const addInitial = async (db: SQLiteDatabase) => {
+    try{
+        const query = `INSERT INTO utilizedTable (id, utilized) VALUES (786, 0)`
+        await db.executeSql(query)
+    }
+    catch(e){
+        console.warn("Error Adding Initial: " + e)
+    }
 }

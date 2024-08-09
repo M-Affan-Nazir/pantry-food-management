@@ -8,7 +8,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Stat from '../components/statistics';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { SQLiteDatabase } from 'react-native-sqlite-storage';
-import { createTable, getDBConnection, getItems } from '../functions/storage';
+import { getItems, getUtilized } from '../functions/storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { seperateItems } from '../functions/dataManipulation';
@@ -42,6 +42,7 @@ export default function Home(x : Props) {
   const [items, setItems] = useState<itemTypeOut[]>([])
   const [expired, setExpired] = useState<itemTypeOut[]>([])
   const [forceUpdate, setForceUpdate] = useState(false)
+  const [utilized, setUtilized] = useState<number>(0)
 
   useEffect(()=>{
     getItemsFromDB()
@@ -58,7 +59,9 @@ export default function Home(x : Props) {
 
   async function getItemsFromDB(){
       const gotten = await getItems(x.route.params.db)
+      const util = await getUtilized(x.route.params.db)
       const {te, e} = seperateItems(gotten)
+      setUtilized(util)
       setItems(te)
       setExpired(e)
   }
