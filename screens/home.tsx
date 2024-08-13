@@ -111,7 +111,7 @@ export default function Home(x : Props) {
 
       <AboutToExpireList items={items} db={x.route.params.db} updateList={updateList} />
       <Expired items={expired} />
-      <Stat utilized={utilized} wasted={expired.length} />
+      <Stat utilized={utilized} wasted={expired.reduce((accumulator, item) => accumulator + item.quantity, 0)} />
     
       <Modal visible={modalOptionVisible} animationType="none" onRequestClose={toggleOptionModal} transparent={true} >
         <View style={{flex:1, justifyContent:"flex-end", backgroundColor:'rgba(206, 222, 210, 0.7)'}}>
