@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import { SQLiteDatabase } from 'react-native-sqlite-storage';
-import { updateItem } from '../functions/storage';
+import { updateItem, updateUtilized } from '../functions/storage';
 
 type itemTypeOut = {
     id : number,
@@ -89,6 +89,7 @@ export default function AboutToExpireList(x:prop){
       async function updateDB(){
         if(chosenItem){
             await updateItem(x.db, chosenItem?.id, update)
+            await updateUtilized(x.db, update)
             x.updateList(chosenItem?.id, update)
             setModal(false)
             setUpdate(1)

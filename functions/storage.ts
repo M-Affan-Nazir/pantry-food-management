@@ -108,18 +108,17 @@ export const getUtilized = async (db : SQLiteDatabase) => {
         const query =  `SELECT * FROM utilizedTable`
         const result = await db.executeSql(query)
         const firstRow = result[0].rows.item(0)
-        // const util = firstRow.utilized
-        // console.warn(result)
-        // return util
+        const util = firstRow.utilized
+        return util
     }
     catch(e){
-        console.warn("Error getting Utilized Item: " + e)
+        console.warn(e)
     }
 }
 
 export const updateUtilized = async (db: SQLiteDatabase, quantity:number) => {
     try{
-        const already = await getUtilized(db)
+        const already : number = await getUtilized(db)
         const query = `UPDATE utilizedTable SET utilized = ? WHERE id = 786`;
         await db.executeSql(query, [quantity+already]);
     }
@@ -134,6 +133,6 @@ const addInitial = async (db: SQLiteDatabase) => {
         await db.executeSql(query)
     }
     catch(e){
-        console.warn("Error Adding Initial: " + e)
+        return
     }
 }
