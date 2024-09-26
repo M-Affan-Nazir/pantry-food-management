@@ -6,6 +6,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Entypo from 'react-native-vector-icons/Entypo';
 import { getDBConnection, addItem, createTable } from '../functions/storage';
 import { SQLiteDatabase } from 'react-native-sqlite-storage';
+import data from "../data/data.json"
 const w = Dimensions.get('window').width;
 const h = Dimensions.get('window').height;
 
@@ -20,35 +21,6 @@ type AddManualNavigationProp = StackNavigationProp<AddManualStackParamList, 'Hom
 interface NavigationContainerProp {
   navigation: AddManualNavigationProp;
 }
-
-const data = [
-  {
-    name:"chicken",
-    expiry:3,
-    factor:"days",
-  },
-  {
-    name:"frozen chicken",
-    expiry:7,
-    factor:"days"
-  },
-  {
-    name:"chick peas",
-    expiry:1,
-    factor:"year"
-  },
-  {
-    name:"ketchup",
-    expiry:1,
-    factor:"year"
-  },
-  {
-    name:"milk",
-    expiry:0.0001,
-    factor:"days"
-  },
-
-]
 
 type resultItem={
   name:string,
@@ -261,7 +233,7 @@ export default function  AddManually(x : NavigationContainerProp) {
                   <Entypo name="cross" size={24} color="black" />
             </TouchableOpacity>
             <View style={{paddingBottom:35, paddingTop:35}} >
-              <Text style={{color:"black", fontSize:15, marginLeft:15, fontWeight:"bold"}} >{interModal?.name.toUpperCase()}</Text>
+              <Text style={{color:"black", fontSize:15, marginLeft:15, fontWeight:"bold", maxWidth:w/3}} >{interModal?.name.toUpperCase()}</Text>
               <Text style={{color:"black", fontSize:15, marginLeft:15}} >Expiry Time: {interModal?.expiry} {interModal?.factor} </Text>
             </View>
             <View style={{paddingBottom:35, paddingTop:35, right:23, top:5}}>
@@ -279,7 +251,7 @@ export default function  AddManually(x : NavigationContainerProp) {
             </View>
             <View style={{paddingBottom:35, paddingTop:35, right:23, top:5}}>
               <TouchableOpacity style={{backgroundColor:"lightgreen", paddingVertical:11, paddingHorizontal:10}} onPress={AddToCart}>
-                <Text style={{color:"black", fontSize:15}} >Add</Text>
+                <Text style={{color:"black", fontSize:15}}>Add</Text>
               </TouchableOpacity>
             </View>
           </View>

@@ -15,6 +15,7 @@ import { seperateItems } from '../functions/dataManipulation';
 import AboutToExpireList from '../components/toExpireList';
 import Expired from '../components/Expired';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { getAdditionTime } from '../functions/dataManipulation';
 
 const w = Dimensions.get('window').width;
 const h = Dimensions.get('window').height;
@@ -108,7 +109,7 @@ export default function Home(x : Props) {
   }
 
   const data : Item[] = []
-  
+
   
   async function updateList(id:number, quantity:number){
     let newList:itemTypeOut[] = []
@@ -143,7 +144,7 @@ export default function Home(x : Props) {
     
       <Modal visible={modalOptionVisible} animationType="none" onRequestClose={toggleOptionModal} transparent={true} >
         <View style={{flex:1, justifyContent:"flex-end", backgroundColor:'rgba(206, 222, 210, 0.7)'}}>
-          <TouchableHighlight style={{backgroundColor:"#fafafa", height:70, borderTopLeftRadius:20, borderTopRightRadius:20, flexDirection:"row"}} onPress={()=>{x.navigation.navigate("Camera"), setModalOptionVisible(false) }} >  
+          {/* <TouchableHighlight style={{backgroundColor:"#fafafa", height:70, borderTopLeftRadius:20, borderTopRightRadius:20, flexDirection:"row"}} onPress={()=>{x.navigation.navigate("Camera"), setModalOptionVisible(false) }} >  
             <View style={{justifyContent:"center", flexDirection:"row" }}>
               <TouchableOpacity style={{position:"absolute", left:w-31, top:7}} onPress={toggleOptionModal}>
                 <Entypo name="cross" size={24} color="black" />
@@ -158,7 +159,17 @@ export default function Home(x : Props) {
               <FontAwesome name="pencil-square-o" size={35} color="grey" style={{marginTop:17, marginLeft:15}}  />
                   <Text style={{color:"grey", marginTop:21, marginLeft: 20, fontSize:19}}>Add Manually</Text>
                 </View>
-            </TouchableHighlight>
+            </TouchableHighlight> */}
+          <TouchableHighlight style={{backgroundColor:"#fafafa", height:70, borderTopLeftRadius:20, borderTopRightRadius:20, flexDirection:"row"}} onPress={()=>{x.navigation.navigate("AddManually"), setModalOptionVisible(false) }}>  
+            <View style={{justifyContent:"center", flexDirection:"row" }}>
+              <TouchableOpacity style={{position:"absolute", left:w-31, top:7}} onPress={toggleOptionModal}>
+                <Entypo name="cross" size={24} color="black" />
+              </TouchableOpacity>
+              <FontAwesome name="pencil-square-o" size={35} color="grey" style={{marginTop:17, marginLeft:15}}  />
+              <Text style={{color:"grey", marginTop:21, marginLeft: 20, fontSize:19}}>Add Manually</Text>
+              </View>
+          </TouchableHighlight>
+
         </View>
       </Modal>
     </View>

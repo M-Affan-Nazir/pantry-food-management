@@ -70,7 +70,7 @@ export default function AboutToExpireList(x:prop){
           <Text style={{ color: 'black', fontSize: 17, fontWeight: 'bold' }}>
             {item.name}
           </Text>
-          <Text style={{ fontSize: 11,  color:"black",  }}>{item.expiry} {item.factor}</Text>
+          <Text style={{ fontSize: 11,  color:"black",  }}>{item.expiry > 0 ? item.expiry : null} {item.factor}</Text>
         </TouchableOpacity>
       );
 

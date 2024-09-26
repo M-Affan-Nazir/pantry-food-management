@@ -14,7 +14,7 @@ let expired : itemTypeOut[] = []
 let maxTimeAr:number[] = []
 
   
-function getAdditionTime(expiry : number, factor: string){
+export function getAdditionTime(expiry : number, factor: string){
     let time = 0;
     const secondsInDay = 86400
     const secondsInMonth = secondsInDay*30
@@ -49,10 +49,43 @@ export function seperateItems( arr : itemTypeOut[]){
     bubbleSort()
     let te = [...toExpire]
     let e = [...expired]
+    te = modify(te)
     toExpire = []
     expired = []
     maxTimeAr = []
     return {te, e}
+}
+
+function modify(items:itemTypeOut[]) : itemTypeOut[] {
+    let updatedArray : itemTypeOut[] = items
+    for(let i = 0; i<updatedArray.length;i++){
+      let time_factor = "days"
+      let time_left = Math.floor((getAdditionTime(updatedArray[i].expiry, updatedArray[i].factor) +  updatedArray[i].created_at -  Math.floor(Date.now() / 1000)) / 86400)
+      console.warn(time_left)
+      if(time_left <= 0){
+        time_factor = "Today"
+      }
+      else{
+        if (time_left > 30){
+            time_left =  Math.floor(time_left / 30)
+            time_factor = "month"
+            if(time_factor == "month" && time_left > 12){
+              time_left =  Math.floor(time_left / 12)
+            time_factor = "year"
+            }
+        }
+      }
+      
+      updatedArray = updatedArray.map((item) => {
+      if (item.id === updatedArray[i].id) {
+        // Return a new object with the updated expiry value
+        return { ...item, expiry: time_left, factor:time_factor };
+      }
+      return item; // Return the original object for all other items
+    });
+  };
+  console.warn(updatedArray)
+  return updatedArray
 }
 
 function bubbleSort(){
