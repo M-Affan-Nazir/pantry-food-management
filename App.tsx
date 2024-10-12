@@ -10,7 +10,7 @@ import { seperateItems } from './functions/dataManipulation';
 import { SQLiteDatabase } from 'react-native-sqlite-storage';
 import BackgroundFetch from 'react-native-background-fetch';
 import PushNotification, { PushNotificationScheduledLocalObject } from 'react-native-push-notification';
-
+import SplashScreen from 'react-native-splash-screen'
 
 type RootStackParamList = {
   Home: {db : SQLiteDatabase};
@@ -23,6 +23,9 @@ export default function App() {
 
   const [db, setDb] = useState<SQLiteDatabase | null>(null)
   
+    useEffect(()=>{
+      SplashScreen.hide();
+    },[])
   
     useEffect(()=>{
       async function loadDb(){
