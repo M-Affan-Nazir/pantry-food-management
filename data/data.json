@@ -1,0 +1,1662 @@
+[
+  {
+    "name":"acorn",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"aged cheddar",
+    "expiry":1,
+    "factor":"months"
+  },
+  {
+    "name":"ahi tuna",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Aioli",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"alaskan cod",
+    "expiry":3,
+    "factor":"days"
+  },
+  {
+    "name":"alaskan salmon",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"alfalfa sprout",
+    "expiry":3,
+    "factor":"days"
+  },
+  {
+    "name":"alphonso",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"american cheese",
+    "expiry":3,
+    "factor":"days"
+  },
+  {
+    "name":"anaheim",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"anchovies",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"andouille sausage",
+    "expiry":10,
+    "factor":"days"
+  },
+  {
+    "name":"angus steak",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"anjou",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"apple",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Apple cider fresh",
+    "expiry":3,
+    "factor":"days"
+  },
+  {
+    "name":"Apple juice",
+    "expiry":6,
+    "factor":"days"
+  },
+  {
+    "name":"apple smoked bacon",
+    "expiry":3,
+    "factor":"days"
+  },
+  {
+    "name":"applewood ham",
+    "expiry":10,
+    "factor":"days"
+  },
+  {
+    "name":"apricot",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"artichoke",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"arugula baby",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"arugula leaf",
+    "expiry":3,
+    "factor":"days"
+  },
+  {
+    "name":"asiago",
+    "expiry":1,
+    "factor":"months"
+  },
+  {
+    "name":"asian shallots",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"asparagus",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"aubergine",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"australian lobster tails",
+    "expiry":3,
+    "factor":"days"
+  },
+  {
+    "name":"avocado",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"Baby carrots",
+    "expiry":28,
+    "factor":"days"
+  },
+  {
+    "name":"Bacon (cooked)",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"Bacon (uncooked)",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Bagel",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Bagged greens",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Balsamic vinegar",
+    "expiry":18,
+    "factor":"months"
+  },
+  {
+    "name":"Bamboo shoots",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Bananas",
+    "expiry":3,
+    "factor":"days"
+  },
+  {
+    "name":"Basil",
+    "expiry":10,
+    "factor":"days"
+  },
+  {
+    "name":"Bean sprouts",
+    "expiry":10,
+    "factor":"days"
+  },
+  {
+    "name":"Beans and peas",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Beef",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Beef (ground)",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Beef broth\/stock\/consomm\u00e9 ",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Beets",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"berry Fruit pies",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Bison (ground)",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Bison (whole)",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"blackberries",
+    "expiry":6,
+    "factor":"days"
+  },
+  {
+    "name":"Blueberries",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"bluefish ",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Bok choy",
+    "expiry":3,
+    "factor":"days"
+  },
+  {
+    "name":"boysenberries",
+    "expiry":6,
+    "factor":"days"
+  },
+  {
+    "name":"Bratwurst (fresh)",
+    "expiry":3,
+    "factor":"days"
+  },
+  {
+    "name":"Bratwurst (smoked and processed)",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Bread",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Breadcrumbs",
+    "expiry":6,
+    "factor":"months"
+  },
+  {
+    "name":"Broccoli and broccoli raab (rapini)",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Broth",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Brussels sprouts",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Buttermilk",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"Cabbage",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"Cake, brownie, bread mixes",
+    "expiry":18,
+    "factor":"months"
+  },
+  {
+    "name":"Canadian bacon",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"Canola oil",
+    "expiry":1,
+    "factor":"years"
+  },
+  {
+    "name":"Cantaloupe",
+    "expiry":15,
+    "factor":"days"
+  },
+  {
+    "name":"Capon",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Carrot juice",
+    "expiry":6,
+    "factor":"days"
+  },
+  {
+    "name":"Carrots, parsnips",
+    "expiry":21,
+    "factor":"days"
+  },
+  {
+    "name":"casaha melon",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Cashew butter",
+    "expiry":3,
+    "factor":"months"
+  },
+  {
+    "name":"Cashews",
+    "expiry":6,
+    "factor":"months"
+  },
+  {
+    "name":"Casseroles",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"catfish",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Cauliflower",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Caviar",
+    "expiry":28,
+    "factor":"days"
+  },
+  {
+    "name":"Celery",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"Celery root",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Cheddar",
+    "expiry":6,
+    "factor":"months"
+  },
+  {
+    "name":"Cheese (brie, goat)",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"Cheese (processed slice)",
+    "expiry":28,
+    "factor":"days"
+  },
+  {
+    "name":"Cheese Curds",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"Cheesecake",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Cherimoya",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"cherries",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Cherries",
+    "expiry":3,
+    "factor":"days"
+  },
+  {
+    "name":"Cherry tomatoes",
+    "expiry":10,
+    "factor":"days"
+  },
+  {
+    "name":"Chicken",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Chicken (deli meat)",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"Chicken broth\/stock\/consomm\u00e9 ",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Chicken salad",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Chives",
+    "expiry":21,
+    "factor":"days"
+  },
+  {
+    "name":"Chorizo (cooked)",
+    "expiry":1,
+    "factor":"months"
+  },
+  {
+    "name":"Chorizo (fresh)",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Chorizo (uncooked)",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Chutney",
+    "expiry":2,
+    "factor":"months"
+  },
+  {
+    "name":"Cilantro",
+    "expiry":21,
+    "factor":"days"
+  },
+  {
+    "name":"Cinnamon rolls",
+    "expiry":3,
+    "factor":"days"
+  },
+  {
+    "name":"Citrus fruit",
+    "expiry":21,
+    "factor":"days"
+  },
+  {
+    "name":"Coconut fresh",
+    "expiry":21,
+    "factor":"days"
+  },
+  {
+    "name":"Coconut milk",
+    "expiry":10,
+    "factor":"days"
+  },
+  {
+    "name":"Coconut water",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"cod",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Coleslaw",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Commercial bread products",
+    "expiry":21,
+    "factor":"days"
+  },
+  {
+    "name":"Commercial cakes and muffins",
+    "expiry":10,
+    "factor":"days"
+  },
+  {
+    "name":"Cooked fish",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Cooked pasta",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Cooked poultry dishes",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Cooked rice",
+    "expiry":6,
+    "factor":"days"
+  },
+  {
+    "name":"Cooked shellfish",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Cookies",
+    "expiry":3,
+    "factor":"months"
+  },
+  {
+    "name":"Corn on the cob",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Corned beef",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Cornish Hens",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Cottage cheese",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"Cow Milk",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Crab legs",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Crab meat",
+    "expiry":3,
+    "factor":"days"
+  },
+  {
+    "name":"Cranberries",
+    "expiry":2,
+    "factor":"months"
+  },
+  {
+    "name":"crayfish",
+    "expiry":3,
+    "factor":"days"
+  },
+  {
+    "name":"Cream (half and half)",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Cream (heavy)",
+    "expiry":10,
+    "factor":"days"
+  },
+  {
+    "name":"Cream (light)",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Cream (whipped, sweetened)",
+    "expiry":1,
+    "factor":"days"
+  },
+  {
+    "name":"Cream (whipping, ultrapasteurized)",
+    "expiry":1,
+    "factor":"months"
+  },
+  {
+    "name":"Cream cheese",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"Cream liquors",
+    "expiry":8,
+    "factor":"months"
+  },
+  {
+    "name":"Cream pies",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Cream sauces, milk solids",
+    "expiry":12,
+    "factor":"months"
+  },
+  {
+    "name":"Croutons",
+    "expiry":6,
+    "factor":"months"
+  },
+  {
+    "name":"Cucumbers",
+    "expiry":6,
+    "factor":"days"
+  },
+  {
+    "name":"current",
+    "expiry":6,
+    "factor":"days"
+  },
+  {
+    "name":"Dairy filled eclairs",
+    "expiry":3,
+    "factor":"days"
+  },
+  {
+    "name":"Dates",
+    "expiry":2,
+    "factor":"months"
+  },
+  {
+    "name":"Dips",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"Dough",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Doughnuts",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"dragon fruit",
+    "expiry":21,
+    "factor":"days"
+  },
+  {
+    "name":"Duck fat",
+    "expiry":30,
+    "factor":"days"
+  },
+  {
+    "name":"Edamame",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Egg salad",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Eggnog",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Eggplant",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Eggs (hard boiled)",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Eggs (raw whites, yolks)",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Eggs (raw, in shell)",
+    "expiry":35,
+    "factor":"days"
+  },
+  {
+    "name":"Fish (headed,gutted)",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Flaxseed (ground)",
+    "expiry":12,
+    "factor":"months"
+  },
+  {
+    "name":"Flaxseed (whole)",
+    "expiry":2,
+    "factor":"years"
+  },
+  {
+    "name":"flounder",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Fresh clams, mussels, oysters",
+    "expiry":10,
+    "factor":"days"
+  },
+  {
+    "name":"Fresh pasta",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Fresh whole lobster",
+    "expiry":1,
+    "factor":"days"
+  },
+  {
+    "name":"Fried chicken",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Frosting or icing",
+    "expiry":12,
+    "factor":"months"
+  },
+  {
+    "name":"Fruit",
+    "expiry":3,
+    "factor":"days"
+  },
+  {
+    "name":"Fruit cake",
+    "expiry":12,
+    "factor":"months"
+  },
+  {
+    "name":"Fruit, cut",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Garlic",
+    "expiry":12,
+    "factor":"months"
+  },
+  {
+    "name":"Giblets",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Goat",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Goat (ground)",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Goose",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"goose berries",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Graham cracker\/animal cracker",
+    "expiry":9,
+    "factor":"months"
+  },
+  {
+    "name":"Granola",
+    "expiry":9,
+    "factor":"months"
+  },
+  {
+    "name":"Grapes",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Gravy",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Greens",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Ground turkey or chicken",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Guacamole",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Guava",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"haddock",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"halibut",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Ham",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Herring",
+    "expiry":6,
+    "factor":"months"
+  },
+  {
+    "name":"Honey",
+    "expiry":2,
+    "factor":"years"
+  },
+  {
+    "name":"Honeydew",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Horseradish",
+    "expiry":4,
+    "factor":"months"
+  },
+  {
+    "name":"Hot dogs",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Hot peppers",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Hummus",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Hummus",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Jars or pouches",
+    "expiry":3,
+    "factor":"days"
+  },
+  {
+    "name":"Jerky",
+    "expiry":2,
+    "factor":"months"
+  },
+  {
+    "name":"Jicama",
+    "expiry":4,
+    "factor":"months"
+  },
+  {
+    "name":"Kale",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Kefir",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Kimchi",
+    "expiry":12,
+    "factor":"months"
+  },
+  {
+    "name":"Kiwi fruit",
+    "expiry":6,
+    "factor":"days"
+  },
+  {
+    "name":"Kohlrabi",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Kugel",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Kumquats",
+    "expiry":21,
+    "factor":"days"
+  },
+  {
+    "name":"Lamb",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Lamb (ground)",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Leeks",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"Lemon juice",
+    "expiry":6,
+    "factor":"days"
+  },
+  {
+    "name":"Lemongrass",
+    "expiry":9,
+    "factor":"days"
+  },
+  {
+    "name":"Lettuce",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"Live clams, mussels, crab, and oysters",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Lobster tails",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Luncheon meat or poultry",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"lychee",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"mackerel",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"mango",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Marinated vegetables",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Mayonnaise",
+    "expiry":2,
+    "factor":"months"
+  },
+  {
+    "name":"Melons",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"Milk",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Mincement Pie",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Mint",
+    "expiry":21,
+    "factor":"days"
+  },
+  {
+    "name":"Miso",
+    "expiry":1,
+    "factor":"years"
+  },
+  {
+    "name":"mozzarella",
+    "expiry":1,
+    "factor":"months"
+  },
+  {
+    "name":"Muffin",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"mullet",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Mung bean sprouts",
+    "expiry":42,
+    "factor":"days"
+  },
+  {
+    "name":"Mushrooms",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Mustard",
+    "expiry":6,
+    "factor":"months"
+  },
+  {
+    "name":"nectarines",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Okra",
+    "expiry":3,
+    "factor":"days"
+  },
+  {
+    "name":"Olives",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"Onions",
+    "expiry":2,
+    "factor":"months"
+  },
+  {
+    "name":"Orange juice",
+    "expiry":3,
+    "factor":"days"
+  },
+  {
+    "name":"Oregano",
+    "expiry":21,
+    "factor":"days"
+  },
+  {
+    "name":"Papaya",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Parmesan",
+    "expiry":12,
+    "factor":"months"
+  },
+  {
+    "name":"Parsley",
+    "expiry":3,
+    "factor":"days"
+  },
+  {
+    "name":"passionfruit",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Pasta salad",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Pastrami",
+    "expiry":40,
+    "factor":"days"
+  },
+  {
+    "name":"Pastries, danish",
+    "expiry":10,
+    "factor":"days"
+  },
+  {
+    "name":"Pate",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Peaches",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Peanut butter",
+    "expiry":4,
+    "factor":"months"
+  },
+  {
+    "name":"pears",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Pecan Pie",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"pepperoni",
+    "expiry":21,
+    "factor":"days"
+  },
+  {
+    "name":"Peppers",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"Pesto",
+    "expiry":3,
+    "factor":"days"
+  },
+  {
+    "name":"Pheasant",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Pimento cheese",
+    "expiry":28,
+    "factor":"days"
+  },
+  {
+    "name":"Pineapple",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Pizza",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Plantains",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"plums",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Pomegranate",
+    "expiry":3,
+    "factor":"months"
+  },
+  {
+    "name":"Pork",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Pork (ground)",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Pork rinds",
+    "expiry":4,
+    "factor":"months"
+  },
+  {
+    "name":"Pork roll",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Potato salad",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Poultry pieces",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Prickly pear ",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"Prosciutto",
+    "expiry":3,
+    "factor":"months"
+  },
+  {
+    "name":"Pudding",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Pumpkin Pie",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Pumpkins",
+    "expiry":5,
+    "factor":"months"
+  },
+  {
+    "name":"Quail",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Quark",
+    "expiry":10,
+    "factor":"days"
+  },
+  {
+    "name":"Quiche",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Quinoa (cooked)",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Rabbit",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Radicchio",
+    "expiry":21,
+    "factor":"days"
+  },
+  {
+    "name":"Radishes",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"Raspberries",
+    "expiry":3,
+    "factor":"days"
+  },
+  {
+    "name":"Raw kabobs with vegetables",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Rhubarb",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Rice milk",
+    "expiry":10,
+    "factor":"days"
+  },
+  {
+    "name":"Ricotta",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Roasted red peppers",
+    "expiry":6,
+    "factor":"months"
+  },
+  {
+    "name":"Rosemary",
+    "expiry":21,
+    "factor":"days"
+  },
+  {
+    "name":"Rotisserie chicken",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Rutabagas",
+    "expiry":21,
+    "factor":"days"
+  },
+  {
+    "name":"Rye",
+    "expiry":6,
+    "factor":"months"
+  },
+  {
+    "name":"Salami ",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"salmon",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Salsa",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"sapote",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Sausage (fully cooked smoked links, kielbasa)",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Sausage (raw bulk type or patties)",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Sausages (precooked)",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Sausages (uncooked)",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Scallops",
+    "expiry":3,
+    "factor":"days"
+  },
+  {
+    "name":"Seafood salads",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Shrimp",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Shucked clams, mussels, and oysters",
+    "expiry":10,
+    "factor":"days"
+  },
+  {
+    "name":"sole",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Soup, stews",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Sour cream",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Soy milk",
+    "expiry":10,
+    "factor":"days"
+  },
+  {
+    "name":"Soy or rice beverage",
+    "expiry":10,
+    "factor":"days"
+  },
+  {
+    "name":"Spaghetti squash",
+    "expiry":2,
+    "factor":"months"
+  },
+  {
+    "name":"spring onions",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Squash",
+    "expiry":3,
+    "factor":"months"
+  },
+  {
+    "name":"Squid",
+    "expiry":3,
+    "factor":"days"
+  },
+  {
+    "name":"Star fruit",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"Strawberries",
+    "expiry":3,
+    "factor":"days"
+  },
+  {
+    "name":"String Cheese",
+    "expiry":5,
+    "factor":"months"
+  },
+  {
+    "name":"Swiss chard",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"Tamarind",
+    "expiry":6,
+    "factor":"months"
+  },
+  {
+    "name":"Tapenade",
+    "expiry":9,
+    "factor":"months"
+  },
+  {
+    "name":"Taro",
+    "expiry":3,
+    "factor":"days"
+  },
+  {
+    "name":"Thyme",
+    "expiry":21,
+    "factor":"days"
+  },
+  {
+    "name":"Tofu",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Tomato sauce",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Tomatoes",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"Tortillas",
+    "expiry":3,
+    "factor":"months"
+  },
+  {
+    "name":"tuna",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Turkey (breast, leg, thigh)",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Turkey (deli meat)",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Turkey (whole)",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Turkey bacon",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Turnips",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"Variety meats (liver, tongue, chitterlings)",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Veal ",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Veal (ground)",
+    "expiry":2,
+    "factor":"days"
+  },
+  {
+    "name":"Vegan Cheddar Cheese",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Vegetable juice",
+    "expiry":1,
+    "factor":"months"
+  },
+  {
+    "name":"Vegetable soup",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Vegetable stock\/broth ",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Venison",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Watermelon",
+    "expiry":4,
+    "factor":"days"
+  },
+  {
+    "name":"Whipped cream (aerosol can)",
+    "expiry":28,
+    "factor":"days"
+  },
+  {
+    "name":"Whipped topping (aerosol can)",
+    "expiry":3,
+    "factor":"months"
+  },
+  {
+    "name":"Whipped topping (tub)",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"Whole wheat bread",
+    "expiry":5,
+    "factor":"days"
+  },
+  {
+    "name":"Yams\/sweet potatoes",
+    "expiry":21,
+    "factor":"days"
+  },
+  {
+    "name":"Yogurt",
+    "expiry":14,
+    "factor":"days"
+  },
+  {
+    "name":"Yuca\/cassava",
+    "expiry":3,
+    "factor":"days"
+  },
+  {
+    "name":"Yuzu (fresh)",
+    "expiry":7,
+    "factor":"days"
+  },
+  {
+    "name":"Yuzu juice",
+    "expiry":4,
+    "factor":"months"
+  },
+  {
+    "name":"Zucchini",
+    "expiry":7,
+    "factor":"days"
+  }
+]
