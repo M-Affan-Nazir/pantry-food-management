@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View, TextInput, Dimensions, TouchableOpacity, Keyboard, KeyboardAvoidingView, FlatList, Modal, Alert } from 'react-native';
-import { useEffect, useState } from 'react';
+import { useState, useContext } from 'react';
 import { StackNavigationProp } from '@react-navigation/stack';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Entypo from 'react-native-vector-icons/Entypo';
-import { getDBConnection, addItem, createTable } from '../functions/storage';
-import { SQLiteDatabase } from 'react-native-sqlite-storage';
+import { addItem } from '../functions/storage';
 import data from "../data/data.json"
 const w = Dimensions.get('window').width;
 const h = Dimensions.get('window').height;
+import { DatabaseContext } from '../functions/databasecontext';
 
 
 type AddManualStackParamList = {
@@ -45,18 +45,8 @@ export default function  AddManually(x : NavigationContainerProp) {
   const [cart, addCart] = useState<resultRenderItem[]>([])
   const [quantity, setQuantity] = useState(1)
   const [cartDetailModal, setCartDetailModal] = useState(false)
-  const [db, setDb] = useState<SQLiteDatabase | null>(null)
+  const { db } = useContext(DatabaseContext);
 
-  
-  useEffect(()=>{
-    async function loadDb(){
-      const dataBase = await getDBConnection()
-      await createTable(dataBase)
-      setDb(dataBase)
-    }
-    loadDb();
-  },[])
-  
   function checkDB(query=""){
     Keyboard.dismiss()
     setResult([])

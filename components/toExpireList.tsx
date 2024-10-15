@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View, TouchableHighlight, TouchableOpacity, Dimensions, Modal, FlatList } from 'react-native';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
-import { SQLiteDatabase } from 'react-native-sqlite-storage';
 import { updateItem, updateUtilized } from '../functions/storage';
+import { DatabaseContext } from '../functions/databasecontext';
 
 type itemTypeOut = {
     id : number,
@@ -16,7 +16,6 @@ type itemTypeOut = {
 }
 type prop = {
     items : itemTypeOut[],
-    db : SQLiteDatabase,
     updateList: (id:number, quantity:number) => void
 }
 
@@ -28,6 +27,8 @@ export default function AboutToExpireList(x:prop){
     const [modal, setModal] = useState(false)
     const [chosenItem, setChosenItem] = useState<itemTypeOut>()
     const [update, setUpdate] = useState<number>(1)
+
+    const {db} = useContext(DatabaseContext)
 
     let items = x.items
     function AboutToExpireCapsulation(){
@@ -87,9 +88,9 @@ export default function AboutToExpireList(x:prop){
       }
 
       async function updateDB(){
-        if(chosenItem){
-            await updateItem(x.db, chosenItem?.id, update)
-            await updateUtilized(x.db, update)
+        if(chosenItem && db!=null){
+            await updateItem(db, chosenItem?.id, update)
+            await updateUtilized(db, update)
             x.updateList(chosenItem?.id, update)
             setModal(false)
             setUpdate(1)

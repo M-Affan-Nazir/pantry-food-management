@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, TouchableHighlight, TouchableOpacity, Dimensions, Modal } from 'react-native';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -16,12 +16,14 @@ import AboutToExpireList from '../components/toExpireList';
 import Expired from '../components/Expired';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { getAdditionTime } from '../functions/dataManipulation';
+import { DatabaseContext } from '../functions/databasecontext';
+
 
 const w = Dimensions.get('window').width;
 const h = Dimensions.get('window').height;
 
 type HomeStackParamList = {
-  Home: {db : SQLiteDatabase}; 
+  Home: undefined; 
   AddManually: undefined;
   Camera: undefined
 };
@@ -44,6 +46,7 @@ export default function Home(x : Props) {
   const [items, setItems] = useState<itemTypeOut[]>([])
   const [expired, setExpired] = useState<itemTypeOut[]>([])
   const [utilized, setUtilized] = useState<number>(0)
+  const { db } = useContext(DatabaseContext);
 
   function getUTCFirstDayOfCurrentMonth(): number {
     const now = new Date(); 
@@ -55,8 +58,9 @@ export default function Home(x : Props) {
 
     useEffect(()=>{
       const get = async () => {
-        const ut = await getUtilized(x.route.params.db)
-        setUtilized(ut)
+        if (db) {
+          const ut = await getUtilized(db);
+          setUtilized(ut);
         
         const lastUTCreset = await AsyncStorage.getItem('resetDone');
         if(lastUTCreset == null){
@@ -66,7 +70,7 @@ export default function Home(x : Props) {
         else{
           const t = Math.floor(Date.now() / 1000);
           if(t - parseInt(lastUTCreset, 10) >= 2592000){
-              await reset(x.route.params.db, expired)
+              await reset(db, expired)
               setExpired([])
               const utcThis1st = String(getUTCFirstDayOfCurrentMonth())
               await AsyncStorage.setItem('resetDone', utcThis1st);
@@ -79,7 +83,7 @@ export default function Home(x : Props) {
         
       }
       get()
-    })
+    }})
 
   useEffect(()=>{
     getItemsFromDB()
@@ -95,11 +99,13 @@ export default function Home(x : Props) {
   );
 
   async function getItemsFromDB(){
-      const gotten = await getItems(x.route.params.db)
-      const util = await getUtilized(x.route.params.db)
+    if(db!= null){
+      const gotten = await getItems(db)
+      const util = await getUtilized(db)
       const {te, e} = seperateItems(gotten)
       setItems(te)
       setExpired(e)
+    }
   }
   
   interface Item {
@@ -131,49 +137,51 @@ export default function Home(x : Props) {
   }
 
 
-  return (
-    <View style={styles.container}>
-      <TouchableOpacity style= {{backgroundColor:"white", padding:5, borderRadius:100, top:h-125, left:w/1.21, position:"absolute", borderColor:"#17bd24", borderWidth:2.1, justifyContent:"center", alignItems:"center"}} onPress={toggleOptionModal} >
-        <AntDesign name="plus" size={41} color="black" />
-        <Text style={{fontSize:11,  color:"black", }}>Add</Text>
-      </TouchableOpacity>
-
-      <AboutToExpireList items={items} db={x.route.params.db} updateList={updateList} />
-      <Expired items={expired} />
-      <Stat utilized={utilized} wasted={expired.reduce((accumulator, item) => accumulator + item.quantity, 0)} />
-    
-      <Modal visible={modalOptionVisible} animationType="none" onRequestClose={toggleOptionModal} transparent={true} >
-        <View style={{flex:1, justifyContent:"flex-end", backgroundColor:'rgba(206, 222, 210, 0.7)'}}>
-          {/* <TouchableHighlight style={{backgroundColor:"#fafafa", height:70, borderTopLeftRadius:20, borderTopRightRadius:20, flexDirection:"row"}} onPress={()=>{x.navigation.navigate("Camera"), setModalOptionVisible(false) }} >  
-            <View style={{justifyContent:"center", flexDirection:"row" }}>
-              <TouchableOpacity style={{position:"absolute", left:w-31, top:7}} onPress={toggleOptionModal}>
-                <Entypo name="cross" size={24} color="black" />
-              </TouchableOpacity>
-              <MaterialIcons name="document-scanner" size={35} color="grey" style={{marginTop:17, marginLeft:15}} />
-              <Text style={{color:"grey", marginTop:21, marginLeft: 20, fontSize:19}}>Add By Scanning Receipt</Text>
-            </View>
-          </TouchableHighlight>
-          <View style={{backgroundColor:"lightgrey", width:w, height:1.3}} />
-            <TouchableHighlight style={{backgroundColor:"#fafafa", height:70}} onPress={()=>{x.navigation.navigate("AddManually"), setModalOptionVisible(false) }} >  
-              <View style={{flexDirection:"row" }}>
-              <FontAwesome name="pencil-square-o" size={35} color="grey" style={{marginTop:17, marginLeft:15}}  />
-                  <Text style={{color:"grey", marginTop:21, marginLeft: 20, fontSize:19}}>Add Manually</Text>
-                </View>
-            </TouchableHighlight> */}
-          <TouchableHighlight style={{backgroundColor:"#fafafa", height:70, borderTopLeftRadius:20, borderTopRightRadius:20, flexDirection:"row"}} onPress={()=>{x.navigation.navigate("AddManually"), setModalOptionVisible(false) }}>  
-            <View style={{justifyContent:"center", flexDirection:"row" }}>
-              <TouchableOpacity style={{position:"absolute", left:w-31, top:7}} onPress={toggleOptionModal}>
-                <Entypo name="cross" size={24} color="black" />
-              </TouchableOpacity>
-              <FontAwesome name="pencil-square-o" size={35} color="grey" style={{marginTop:17, marginLeft:15}}  />
-              <Text style={{color:"grey", marginTop:21, marginLeft: 20, fontSize:19}}>Add Manually</Text>
+  if(db != null){
+    return (
+      <View style={styles.container}>
+        <TouchableOpacity style= {{backgroundColor:"white", padding:5, borderRadius:100, top:h-125, left:w/1.21, position:"absolute", borderColor:"#17bd24", borderWidth:2.1, justifyContent:"center", alignItems:"center"}} onPress={toggleOptionModal} >
+          <AntDesign name="plus" size={41} color="black" />
+          <Text style={{fontSize:11,  color:"black", }}>Add</Text>
+        </TouchableOpacity>
+  
+        <AboutToExpireList items={items} updateList={updateList} />
+        <Expired items={expired} />
+        <Stat utilized={utilized} wasted={expired.reduce((accumulator, item) => accumulator + item.quantity, 0)} />
+      
+        <Modal visible={modalOptionVisible} animationType="none" onRequestClose={toggleOptionModal} transparent={true} >
+          <View style={{flex:1, justifyContent:"flex-end", backgroundColor:'rgba(206, 222, 210, 0.7)'}}>
+            {/* <TouchableHighlight style={{backgroundColor:"#fafafa", height:70, borderTopLeftRadius:20, borderTopRightRadius:20, flexDirection:"row"}} onPress={()=>{x.navigation.navigate("Camera"), setModalOptionVisible(false) }} >  
+              <View style={{justifyContent:"center", flexDirection:"row" }}>
+                <TouchableOpacity style={{position:"absolute", left:w-31, top:7}} onPress={toggleOptionModal}>
+                  <Entypo name="cross" size={24} color="black" />
+                </TouchableOpacity>
+                <MaterialIcons name="document-scanner" size={35} color="grey" style={{marginTop:17, marginLeft:15}} />
+                <Text style={{color:"grey", marginTop:21, marginLeft: 20, fontSize:19}}>Add By Scanning Receipt</Text>
               </View>
-          </TouchableHighlight>
-
-        </View>
-      </Modal>
-    </View>
-  );
+            </TouchableHighlight>
+            <View style={{backgroundColor:"lightgrey", width:w, height:1.3}} />
+              <TouchableHighlight style={{backgroundColor:"#fafafa", height:70}} onPress={()=>{x.navigation.navigate("AddManually"), setModalOptionVisible(false) }} >  
+                <View style={{flexDirection:"row" }}>
+                <FontAwesome name="pencil-square-o" size={35} color="grey" style={{marginTop:17, marginLeft:15}}  />
+                    <Text style={{color:"grey", marginTop:21, marginLeft: 20, fontSize:19}}>Add Manually</Text>
+                  </View>
+              </TouchableHighlight> */}
+            <TouchableHighlight style={{backgroundColor:"#fafafa", height:70, borderTopLeftRadius:20, borderTopRightRadius:20, flexDirection:"row"}} onPress={()=>{x.navigation.navigate("AddManually"), setModalOptionVisible(false) }}>  
+              <View style={{justifyContent:"center", flexDirection:"row" }}>
+                <TouchableOpacity style={{position:"absolute", left:w-31, top:7}} onPress={toggleOptionModal}>
+                  <Entypo name="cross" size={24} color="black" />
+                </TouchableOpacity>
+                <FontAwesome name="pencil-square-o" size={35} color="grey" style={{marginTop:17, marginLeft:15}}  />
+                <Text style={{color:"grey", marginTop:21, marginLeft: 20, fontSize:19}}>Add Manually</Text>
+                </View>
+            </TouchableHighlight>
+  
+          </View>
+        </Modal>
+      </View>
+    );
+  }
 
   function toggleOptionModal(){
     setModalOptionVisible(!modalOptionVisible)

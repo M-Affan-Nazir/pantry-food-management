@@ -1,4 +1,4 @@
-package com.bare_food_management
+package com.bdc.foodsauron
 
 import android.app.Application
 import com.facebook.react.PackageList

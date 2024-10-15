@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, StatusBar, ActivityIndicator } from 'react-native';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Home from "./screens/home"
 import AddManually from './screens/addManual';
 import CameraScreen from './screens/cameraScreen';
@@ -11,30 +11,23 @@ import { SQLiteDatabase } from 'react-native-sqlite-storage';
 import BackgroundFetch from 'react-native-background-fetch';
 import PushNotification, { PushNotificationScheduledLocalObject } from 'react-native-push-notification';
 import SplashScreen from 'react-native-splash-screen'
+import { DatabaseProvider } from './functions/databasecontext';
+import { DatabaseContext } from './functions/databasecontext';
 
 type RootStackParamList = {
-  Home: {db : SQLiteDatabase};
-  AddManually : {db : SQLiteDatabase}
-  Camera: {db : SQLiteDatabase};
+  Home: undefined;
+  AddManually : undefined;
+  Camera: undefined;
 }
+
 const Stack = createStackNavigator<RootStackParamList>();
 
 export default function App() {
 
-  const [db, setDb] = useState<SQLiteDatabase | null>(null)
-  
     useEffect(()=>{
       SplashScreen.hide();
     },[])
   
-    useEffect(()=>{
-      async function loadDb(){
-        const dataBase = await getDBConnection()
-        await createTable(dataBase)
-        setDb(dataBase)
-      }
-      loadDb()
-    },[])
 
     const triggerNotification = (items:number) => {
       PushNotification.localNotification({
@@ -70,23 +63,15 @@ export default function App() {
     
 
   function MyStack(){
-  
-    if(db == null){
       return(
-        <View style={{flex:1, justifyContent:"center",alignItems:"center"}}>
-          <ActivityIndicator color={"green"} size={"large"}/>
-        </View>
-      )
-    }
-    else{
-      return(
+        <DatabaseProvider>
         <Stack.Navigator>
-              <Stack.Screen name="Home" component={Home} options={{headerShown:false}} initialParams={{ db: db }} />
-              <Stack.Screen name="AddManually" component={AddManually} options={{headerShown:false}} initialParams={{ db: db }}/>
-              <Stack.Screen name="Camera" component={CameraScreen} options={{headerShown:false}} initialParams={{ db: db }}/>
+              <Stack.Screen name="Home" component={Home} options={{headerShown:false}} />
+              <Stack.Screen name="AddManually" component={AddManually} options={{headerShown:false}}/>
+              <Stack.Screen name="Camera" component={CameraScreen} options={{headerShown:false}}/>
         </Stack.Navigator>
+        </DatabaseProvider>
       )
-    }
   }
 
   return(
